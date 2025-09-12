@@ -1,90 +1,59 @@
-# Bookstore Angular Application
+# BookstoreAngularApp
 
-This is a online bookstore web application where you can search, buy, and manage books just like a real bookstore. You can login, add books to your cart or wishlist, and place orders. The whole app is made using Angular.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
 
-## Project Demonstration
-https://www.youtube.com/watch?v=b2JaZsEZBxw
+## Development server
 
-## Features
+To start a local development server, run:
 
-### 1. Home Page
+```bash
+ng serve
+```
 
-- Search for books by name or author.
-- See a list of all available books.
-- Navigation bar with links to Cart, Wishlist, Profile, and Orders.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-### 2. Login/Signup
+## Code scaffolding
 
-- Login and Signup forms with validation.
-- Passwords are hidden by default, with a toggle to show/hide.
-- Social login buttons (UI only).
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-### 3. Book Details
+```bash
+ng generate component component-name
+```
 
-- Click on any book to see its details: cover, author, price, and description.
-- Add books to your cart or wishlist.
-- See and add customer feedback (ratings and comments).
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-### 4. Cart
+```bash
+ng generate --help
+```
 
-- View all books added to your cart.
-- Change quantity or remove books.
-- Place an order from the cart.
+## Building
 
-### 5. Wishlist
+To build the project run:
 
-- Add or remove books from your wishlist.
-- Move books from wishlist to cart.
+```bash
+ng build
+```
 
-### 6. Profile
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-- View your personal details (name, email, mobile).
-- Edit and save your address (multiple addresses supported).
-- All forms are validated.
+## Running unit tests
 
-### 7. Orders
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-- See a list of all your past orders.
-- Each order shows book details and order date.
+```bash
+ng test
+```
 
-### 8. Checkout
+## Running end-to-end tests
 
-- Place an order and see a confirmation message.
-- Contact info and address shown after order is placed.
+For end-to-end (e2e) testing, run:
 
-### 9. Responsive UI
+```bash
+ng e2e
+```
 
-- The whole app works great on mobile, tablet, and desktop.
-- Used Angular Material for a modern look.
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-### 10. Testing
+## Additional Resources
 
-- Wrote unit tests using Jasmine.
-- Ran all tests using Karma (just run `npm test`).
-
-## How to Run
-
-1. Clone the repo and go to the project folder:
-   ```
-   git clone https://github.com/ssh4rma/Bookstore-Application.git
-   cd "Bookstore Angular Application/bookstore-app"
-   ```
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Start the app:
-
-   ```
-   npm start
-   ```
-
-   The app will run at `http://localhost:4200/`
-
-4. To run tests:
-   ```
-   npm test
-   ```
-   This will use Jasmine and Karma.
-
-### Thank You!
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
