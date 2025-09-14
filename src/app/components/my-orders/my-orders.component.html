@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <div class="wishlist-wrapper">
+    <div class="navigation-panel">
+      <button (click)="onClickHome()" id="home-nav-btn">Home /</button>
+      <button id="wishlist-nav-btn">My order</button>
+    </div>
+
+    <div class="list">
+      <table class="wishlist-table">
+        <tr *ngFor="let book of myOrdersBooks">
+          <div class="list-wrapper">
+            <div class="list-image">
+              <img
+                class="book-image"
+                src="../../../assets/book-cover.jpg"
+                alt="book-cover"
+              />
+            </div>
+            <div class="list-book-info">
+              <div class="info">
+                <div class="title">
+                  <span id="book-title">{{ book.bookName }}</span>
+                </div>
+                <div class="author">
+                  <span id="book-author">{{ book.author }}</span>
+                </div>
+                <div class="price">
+                  <span id="disPrice"
+                    ><b>Rs. {{ book.discountPrice }}</b
+                    ><span id="actualPrice">Rs. {{ book.price }}</span></span
+                  >
+                </div>
+              </div>
+              <div class="order-place-date">
+                <button class="green-dot"></button>
+                <span><b>Order Placed on May 21</b></span>
+              </div>
+            </div>
+          </div>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
