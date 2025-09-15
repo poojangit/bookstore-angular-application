@@ -142,7 +142,7 @@ export class LoginSignupComponent {
 
     this.loginService.userSignup(data).subscribe({
       next: (res: any) => {
-        console.log('User created successfully');
+        console.log('User created successfully', data);
       },
       error: (err) => console.log(err),
     });

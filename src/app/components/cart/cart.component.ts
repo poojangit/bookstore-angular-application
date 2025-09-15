@@ -78,8 +78,11 @@ export class CartComponent implements OnInit {
   }
 
   calTotal(): void {
+    this.totalAmount = 0;
     for (let item of this.items) {
       this.totalAmount += item.product_id.discountPrice * item.quantityToBuy;
+      console.log('Total amount:', this.totalAmount);
+      
     }
   }
 
