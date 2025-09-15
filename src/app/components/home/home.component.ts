@@ -83,7 +83,7 @@ export class HomeComponent {
     this.cartService.getAllCartItems();
     this.cartService.cartList$.subscribe({
       next: (res: any) => {
-        this.cartItems = res.result;
+        this.cartItems = res?.result ?? [];
         this.cartSize = this.cartItems.length;
         console.log(this.cartSize);
       },

@@ -110,8 +110,8 @@ export class CartComponent implements OnInit {
     this.cartService.getAllCartItems();
     this.cartService.cartList$.subscribe({
       next: (res: any) => {
-        // console.log('this is cart response', res);
-        this.items = res.result;
+        console.log('this is cart response', res);
+        this.items = res?.result || [];
         this.calTotal();
       },
       error: (err) => {
