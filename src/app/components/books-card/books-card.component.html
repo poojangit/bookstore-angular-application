@@ -6,10 +6,10 @@
         <span id="totalQuantity">({{ books.length }} items)</span>
       </div>
       <div class="sortby">
-        <select id="sort-option">
-          <option>Sort by Relevance</option>
-          <option>Sort by Price (Low to high)</option>
-          <option>Sort by relevance (High to Low)</option>
+        <select id="sort-option" (change)="onSortChange($event)">
+          <option value="relevance">Sort by Relevance</option>
+          <option value="lowToHigh">Sort by Price (Low to high)</option>
+          <option value="highToLow">Sort by relevance (High to Low)</option>
         </select>
       </div>
     </div>

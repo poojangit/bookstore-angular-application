@@ -55,6 +55,21 @@ export class BooksCardComponent {
     this.bookService.getBook();
   }
 
+  onSortChange(event: any): void {
+    const sortOption = event.target.value;
+    console.log(sortOption);
+    
+    if (sortOption === 'lowToHigh') {
+      this.books.sort((a, b) => a.discountPrice - b.discountPrice);
+    } else if (sortOption === 'highToLow') {
+      this.books.sort((a, b) => b.discountPrice - a.discountPrice);
+    } else {
+      console.log('sort by relevance');
+      
+      this.books = [...this.allBooks];
+    }
+    this.updatePaginatedData();
+  }
   applySearchFilter(value: string): void {
     const search = value.trim().toLowerCase();
     this.books = this.allBooks.filter((book) => {
