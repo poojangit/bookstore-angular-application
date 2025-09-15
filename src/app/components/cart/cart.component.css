@@ -429,3 +429,24 @@ tr {
 #continue-to-order-sum-btn.disableBtn {
   visibility: hidden;
 }
+
+.empty-cart {
+  text-align: center;
+  margin-top: 50px;
+  color: #555;
+}
+.empty-cart h3 {
+  margin: 10px 0;
+  font-weight: 600;
+}
+#shop-now-btn {
+  background: #1976d2;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+#shop-now-btn:hover {
+  background: #125a9c;
+}

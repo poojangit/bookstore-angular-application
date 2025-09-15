@@ -4,7 +4,7 @@
       <button (click)="onClickHomeBtn()" id="home-btn">Home /</button>
       <button id="cart-btn">My Cart</button>
     </div>
-    <div class="order-panel">
+    <div class="order-panel" *ngIf="items.length > 0; else emptyCart">
       <!-- main cart items -->
       <mat-accordion>
         <mat-expansion-panel [expanded]="defaultPanel">
@@ -401,6 +401,14 @@
         </mat-accordion>
       </div>
     </div>
+    <!-- Empty cart fallback -->
+<ng-template #emptyCart>
+  <div class="empty-cart">
+    <h3>Your cart is empty</h3>
+    <p>Add books to see them here</p>
+    <button id="shop-now-btn" (click)="onClickHomeBtn()">Shop Now</button>
+  </div>
+</ng-template>
   </div>
 
   <mat-toolbar class="footer">
