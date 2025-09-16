@@ -125,6 +125,7 @@ export class LoginSignupComponent {
       next: (res: any) => {
         console.log(res.result.accessToken);
         localStorage.setItem('token', res.result.accessToken);
+        // localStorage.setItem('email', data.email || '');
         this.toolbarData.loginState$.next(true);
         this.dialogRef.close();
       },
@@ -154,6 +155,8 @@ export class LoginSignupComponent {
         : '';
 
     localStorage.setItem('name', name);
+    localStorage.setItem('email', data.email || '');  // store email
+    localStorage.setItem('mobileNumber', data.phone || ''); // store mobile
 
     this.isLoginActive = true;
     this.isSignupActive = false;
