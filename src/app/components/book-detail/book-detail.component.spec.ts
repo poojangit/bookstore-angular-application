@@ -10,16 +10,20 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpService } from 'src/app/service/http/http.service';
+import { WishlistService } from 'src/app/service/wishlist/wishlist.service';
+import { FeedbackService } from 'src/app/service/feedback/feedback.service';
 
 describe('BookDetailComponent (Add to Cart only)', () => {
   let component: BookDetailComponent;
   let fixture: ComponentFixture<BookDetailComponent>;
-  let mockCartService: jasmine.SpyObj<Pick<CartService, 'addToCart'>>;
+  let mockCartService: jasmine.SpyObj<Pick<CartService, 'addToCart' | 'getAllCartItems' | 'updateCartItemQuant'>>;
 
   beforeEach(async () => {
-    const cartSpy = jasmine.createSpyObj<Pick<CartService, 'addToCart'>>(
+    const cartSpy = jasmine.createSpyObj<Pick<CartService, 'addToCart' | 'getAllCartItems' | 'updateCartItemQuant'>>(
       'CartService',
-      ['addToCart']
+      ['addToCart', 'getAllCartItems', 'updateCartItemQuant']
     );
 
     await TestBed.configureTestingModule({
@@ -31,6 +35,7 @@ describe('BookDetailComponent (Add to Cart only)', () => {
         TextFieldModule,
         FormsModule,
         NoopAnimationsModule,
+        HttpClientTestingModule
       ],
       providers: [
         {
@@ -48,13 +53,16 @@ describe('BookDetailComponent (Add to Cart only)', () => {
           useValue: jasmine.createSpyObj('BookService', [], { books$: of([]) }),
         },
         { provide: CartService, useValue: cartSpy },
+        HttpService,
+        FeedbackService,
+        WishlistService,
       ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(BookDetailComponent);
     component = fixture.componentInstance;
     mockCartService = TestBed.inject(CartService) as unknown as jasmine.SpyObj<
-      Pick<CartService, 'addToCart'>
+      Pick<CartService, 'addToCart' | 'getAllCartItems' | 'updateCartItemQuant'>
     >;
   });
 
@@ -65,6 +73,7 @@ describe('BookDetailComponent (Add to Cart only)', () => {
   describe('onClickAddToCart()', () => {
     beforeEach(() => {
       component.productId = '123';
+      component.loadCartItems = () => {};
     });
 
     it('should call addToCart and set showQuantBtn to true', () => {
@@ -77,7 +86,7 @@ describe('BookDetailComponent (Add to Cart only)', () => {
     it('should handle error from addToCart', () => {
       spyOn(console, 'log');
       mockCartService.addToCart.and.returnValue(
-        throwError('Add to cart failed')
+        throwError(() => 'Add to cart failed')
       );
       component.onClickAddToCart();
       expect(console.log).toHaveBeenCalledWith('Add to cart failed');
