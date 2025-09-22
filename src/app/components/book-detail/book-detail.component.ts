@@ -36,7 +36,7 @@ export class BookDetailComponent {
   productId: string | null = '';
   targetProduct: any[] = [];
   bookIndex = -1;
-  mainImgUrl = '../../../assets/Revolution2020_Love_Corruption_Ambition.png';
+  mainImgUrl = '../../../assets/money-psy.jpg';
 
   oneStar = false;
   twoStar = false;

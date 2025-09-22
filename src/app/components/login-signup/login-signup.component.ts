@@ -117,15 +117,18 @@ export class LoginSignupComponent {
   }
 
   onLogin(): void {
-    let data = {
+    const data = {
       email: this.loginForm.get('emailId')?.value,
       password: this.loginForm.get('password')?.value,
     };
     this.loginService.userLogin(data).subscribe({
       next: (res: any) => {
-        console.log(res.result.accessToken);
+        // Save user data from the form data, not the API response
         localStorage.setItem('token', res.result.accessToken);
-        // localStorage.setItem('email', data.email || '');
+        localStorage.setItem('email', data.email || '');
+        // The API response doesn't contain the full name, so we cannot store it here.
+        // We can only store it on signup.
+        
         this.toolbarData.loginState$.next(true);
         this.dialogRef.close();
       },
@@ -134,7 +137,7 @@ export class LoginSignupComponent {
   }
 
   onSignup(): void {
-    let data = {
+    const data = {
       fullName: this.singupForm.get('fullName')?.value,
       email: this.singupForm.get('emailId')?.value,
       password: this.singupForm.get('password')?.value,
@@ -144,25 +147,19 @@ export class LoginSignupComponent {
     this.loginService.userSignup(data).subscribe({
       next: (res: any) => {
         console.log('User created successfully', data);
+
+        // All localStorage updates are now inside the subscription
+        const name = data.fullName ? data.fullName.split(' ')[0] : '';
+        localStorage.setItem('name', name);
+        localStorage.setItem('email', data.email || '');
+        localStorage.setItem('mobileNumber', data.phone || '');
+        
+        this.isLoginActive = true;
+        this.isSignupActive = false;
+        
+        this.singupForm.reset();
       },
       error: (err) => console.log(err),
     });
-
-    let firstName = this.singupForm.get('fullName')?.value;
-    let name =
-      typeof firstName === 'string' && firstName.length > 0
-        ? firstName.split(' ')[0]
-        : '';
-
-    localStorage.setItem('name', name);
-    localStorage.setItem('email', data.email || '');  // store email
-    localStorage.setItem('mobileNumber', data.phone || ''); // store mobile
-
-    this.isLoginActive = true;
-    this.isSignupActive = false;
-    this.singupForm.get('fullName')?.setValue('');
-    this.singupForm.get('emailId')?.setValue('');
-    this.singupForm.get('password')?.setValue('');
-    this.singupForm.get('mobileNumber')?.setValue('');
   }
 }

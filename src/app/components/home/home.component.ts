@@ -40,6 +40,8 @@ import { MatBadgeModule } from '@angular/material/badge';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+  logoName = 'Bookstore';
+  myDate = new Date();
   value = '';
   menuOpen!: boolean;
   IsUserLoggedIn = false;

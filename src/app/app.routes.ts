@@ -14,6 +14,10 @@ export const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: BooksCardComponent },
+      // {
+      //   path : '',
+      //   loadComponent : () => import('./components/books-card/books-card.component').then(m => m.BooksCardComponent)
+      // },
       { path: 'profile', component: ProfileComponent },
       { path: 'wishlist', component: WishlistComponent },
       { path: 'bookDetail/:id', component: BookDetailComponent },
