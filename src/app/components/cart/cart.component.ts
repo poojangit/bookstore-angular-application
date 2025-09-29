@@ -89,7 +89,7 @@ export class CartComponent implements OnInit {
   initializeAddressForm(): void {
     this.addressForm = this.fb.group({
       fullName: new FormControl('', [Validators.required]),
-      mobileNumber: new FormControl('', [Validators.required]),
+      mobileNumber: new FormControl('', [Validators.required], ),
       address: new FormControl('', [Validators.required]),
       cityOrTown: new FormControl('', [Validators.required]),
       state: new FormControl('', [Validators.required]),
@@ -248,15 +248,20 @@ export class CartComponent implements OnInit {
       const formValue = this.addressForm.value;
       const newAddress = {
         address: formValue.address,
+        mobileNumber : formValue.mobileNumber,
         cityOrTown: formValue.cityOrTown,
         state: formValue.state,
         type: formValue.type,
       };
+      if(newAddress.mobileNumber.length != 10 || !newAddress.mobileNumber.startsWith('9')){
+        alert("Please enter valid mobile number");
+        return;
+      }
 
       this.addressArray.push(newAddress);
 
       localStorage.setItem('address', JSON.stringify(this.addressArray));
-      console.log('New address added successfully');
+      console.log('New address added successfully,', newAddress);
       this.isAddNewAddress = false;
       this.resetAddressForm();
     } else {
