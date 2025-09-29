@@ -19,25 +19,24 @@ import { CartService } from 'src/app/service/cart/cart.service';
 import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatInputModule,
-    FormsModule,
-    MatMenuModule,
-    MatDividerModule,
-    RouterOutlet,
-    MatDialogModule,
-    MatPaginatorModule,
-    MatCardModule,
-    MatBadgeModule,
-  ],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+    selector: 'app-home',
+    imports: [
+        CommonModule,
+        MatIconModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatInputModule,
+        FormsModule,
+        MatMenuModule,
+        MatDividerModule,
+        RouterOutlet,
+        MatDialogModule,
+        MatPaginatorModule,
+        MatCardModule,
+        MatBadgeModule,
+    ],
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   logoName = 'Bookstore';

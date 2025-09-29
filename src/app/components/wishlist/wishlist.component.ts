@@ -8,11 +8,10 @@ import { WishlistService } from 'src/app/service/wishlist/wishlist.service';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-wishlist',
-  standalone: true,
-  imports: [CommonModule, MatIconModule],
-  templateUrl: './wishlist.component.html',
-  styleUrls: ['./wishlist.component.css'],
+    selector: 'app-wishlist',
+    imports: [CommonModule, MatIconModule],
+    templateUrl: './wishlist.component.html',
+    styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent {
   constructor(

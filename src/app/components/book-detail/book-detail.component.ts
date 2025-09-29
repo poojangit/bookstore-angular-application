@@ -11,17 +11,16 @@ import { WishlistService } from 'src/app/service/wishlist/wishlist.service';
 import { CartService } from 'src/app/service/cart/cart.service';
 
 @Component({
-  selector: 'app-book-detail',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatDividerModule,
-    MatIconModule,
-    TextFieldModule,
-    FormsModule,
-  ],
-  templateUrl: './book-detail.component.html',
-  styleUrls: ['./book-detail.component.css'],
+    selector: 'app-book-detail',
+    imports: [
+        CommonModule,
+        MatDividerModule,
+        MatIconModule,
+        TextFieldModule,
+        FormsModule,
+    ],
+    templateUrl: './book-detail.component.html',
+    styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent {
   constructor(

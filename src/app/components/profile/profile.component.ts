@@ -18,21 +18,20 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-profile',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatRadioModule,
-    MatDividerModule,
-    FormsModule,
-    MatToolbarModule,
-  ],
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
+    selector: 'app-profile',
+    imports: [
+        CommonModule,
+        MatInputModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatRadioModule,
+        MatDividerModule,
+        FormsModule,
+        MatToolbarModule,
+    ],
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
   constructor(

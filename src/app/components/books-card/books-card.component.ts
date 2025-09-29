@@ -8,11 +8,10 @@ import { Router } from '@angular/router';
 import { ToolbarDataService } from 'src/app/service/toolbar-data/toolbar-data.service';
 
 @Component({
-  selector: 'app-books-card',
-  standalone: true,
-  imports: [CommonModule, MatCardModule, MatToolbarModule, MatPaginatorModule],
-  templateUrl: './books-card.component.html',
-  styleUrls: ['./books-card.component.css'],
+    selector: 'app-books-card',
+    imports: [CommonModule, MatCardModule, MatToolbarModule, MatPaginatorModule],
+    templateUrl: './books-card.component.html',
+    styleUrls: ['./books-card.component.css']
 })
 export class BooksCardComponent {
   allBooks: any[] = [];

@@ -24,23 +24,22 @@ import { Router } from '@angular/router';
 import { ToolbarDataService } from 'src/app/service/toolbar-data/toolbar-data.service';
 
 @Component({
-  selector: 'app-login-signup',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatCardModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatIconModule,
-    MatInputModule,
-    MatFormFieldModule,
-  ],
-  templateUrl: './login-signup.component.html',
-  styleUrls: ['./login-signup.component.css'],
+    selector: 'app-login-signup',
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatCardModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatTabsModule,
+        MatIconModule,
+        MatInputModule,
+        MatFormFieldModule,
+    ],
+    templateUrl: './login-signup.component.html',
+    styleUrls: ['./login-signup.component.css']
 })
 export class LoginSignupComponent {
   hide = true;

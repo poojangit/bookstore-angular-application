@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 import { BookService } from 'src/app/service/books/book.service';
 
 @Component({
-  selector: 'app-my-orders',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './my-orders.component.html',
-  styleUrls: ['./my-orders.component.css'],
+    selector: 'app-my-orders',
+    imports: [CommonModule],
+    templateUrl: './my-orders.component.html',
+    styleUrls: ['./my-orders.component.css']
 })
 export class MyOrdersComponent {
   constructor(
